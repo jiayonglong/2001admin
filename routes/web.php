@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::any('/api/selected','Goods\GoodsController@selected');
