@@ -113,9 +113,9 @@ class GoodsController extends AdminController
         $form->select('category_id', __('所属分类'))->options(CategoryModel::selectOptions())->default(1);
         // $form->select('brand_id', __('所属品牌'));
         // $form->select('brand_id')->options('/api/selected');
-        $form->select('sort', 'app')
-             ->options('1')
-             ->load('brand_id', '/api/selected');
+        // $form->select('sort', 'app')
+        //      ->options('1')
+        //      ->load('brand_id', '/api/selected');
         $form->datetime('created_at', __('添加时间'))->default(date('Y-m-d H:i:s'));
         return $form;
     }

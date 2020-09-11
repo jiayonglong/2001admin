@@ -54,7 +54,7 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
-<<<<<<< HEAD
+
 
         'admin' => [
             'driver' => 'local',
@@ -64,14 +64,6 @@ return [
         ],
 
 
-=======
-        'admin' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('UPLOAD_URL'),
-            'visibility' => 'public',
-        ],
->>>>>>> master
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
