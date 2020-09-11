@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::any('/api/selected','Goods\GoodsController@selected');
+
+Route::any('/category/json','AdminCategoryController@catrjson');

@@ -5,16 +5,17 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Encore\Admin\Traits\ModelTree;
 use Encore\Admin\Traits\AdminBuilder;
+
+
 class CategoryModel extends Model
 {
     use ModelTree,AdminBuilder;
-
     //指定表面
     protected $table = 'shop_category';
     protected $primaryKey = 'category_id';
     public $timestamps = false;
 
-    public function __construct(array $attributes = [])
+   public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
 
