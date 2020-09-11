@@ -14,3 +14,4 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::any('/category/json','AdminCategoryController@catrjson');

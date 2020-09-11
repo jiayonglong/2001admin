@@ -12,5 +12,8 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index')->name('home');
+    $router->resource('brand', BrandController::class);
+    $router->resource('category', CatetoryController::class);
+
 
 });
