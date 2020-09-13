@@ -13,7 +13,6 @@ class GoodsController extends Controller
     {
 
 
-
      return $this->selected();
   }
 }

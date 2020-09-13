@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::any('/brand/json','AdminCategoryController@brandjson');
 
 Route::get('/', function () {
     return view('welcome');
