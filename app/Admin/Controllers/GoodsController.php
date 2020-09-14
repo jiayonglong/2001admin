@@ -10,7 +10,6 @@ use Encore\Admin\Show;
 use App\Model\CategoryModel;
 use App\Model\BrandModel;
 use Encore\Admin\Facades\Admin;
-
 class GoodsController extends AdminController
 {
 
@@ -33,7 +32,9 @@ class GoodsController extends AdminController
         $grid->column('goods_id', __('商品id'));
         $grid->column('goods_name', __('商品名称'));
         $grid->column('gooods_img', __('商品图片'))->image();
-        // $grid->column('goods_imgs', __('商品相册'));
+        $grid->column('pictures')->display(function ($pictures) {
+            return $pictures;
+        })->image('http://' . config('filesystems.disks.qiniu.domains.default') . '/', 200, 100);
         $grid->column('goods_price', __('商品价格'));
         $grid->column('goods_desc', __('商品简介'));
         $grid->column('is_new', __('是否新品'))->display(function($is_new){
@@ -76,7 +77,6 @@ class GoodsController extends AdminController
         $show->field('goods_id', __('商品id'));
         $show->field('goods_name', __('商品名称'));
         $show->field('gooods_img', __('商品图片'));
-        // $show->field('goods_imgs', __('商品相册'));
         $show->field('goods_price', __('商品简介'));
         $show->field('goods_desc', __('商品介绍'));
         $show->field('is_new', __('是否新品'));
@@ -98,10 +98,9 @@ class GoodsController extends AdminController
     {
 
         $form = new Form(new GoodsModel());
-
         $form->text('goods_name', __('商品名称'));
         $form->file('gooods_img', __('商品图片'));
-        // $form->file('goods_imgs', __('商品相册'));
+        $form->multipleImage('pictures', '图片');
         $form->decimal('goods_price', __('商品价格'));
         $form->textarea('goods_desc', __('商品简介'));
         $form->switch('is_new', __('是否新品'));
@@ -109,8 +108,6 @@ class GoodsController extends AdminController
         $form->text('goods_num', __('商品存库'));
         $form->select('category_id', __('所属分类'))->options(CategoryModel::selectOptions())->default(1);
         $form->select('brand_id', __('所属品牌'))->options('/brand/json');
-        // $form->select('brand_id')->options([1 => 'foo', 2 => 'bar', 'val' => 'Option name']);
-        // $form->datetime('created_at', __('添加时间'))->default(date('Y-m-d H:i:s'));
         return $form;
     }
 

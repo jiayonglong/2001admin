@@ -12,7 +12,6 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index')->name('home');
-    // $router->get('/brand/json', 'HomeController@brand_json');
     $router->resource('brand', BrandController::class);
     $router->resource('category', CatetoryController::class);
     $router->resource('goods', GoodsController::class);
